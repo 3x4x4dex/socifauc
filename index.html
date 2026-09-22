@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090a0d" />
+    <title>socifauc | earn together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">$</span><span>soci<span>fauc</span></span></div>
+        <div class="profile-mini"><div class="avatar avatar-lime">MC</div><div><strong>Marina Costa</strong><small>@marinac</small></div><button class="more-btn">•••</button></div>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <button class="nav-item active" data-section="feed"><span>⌂</span> Início</button>
+          <button class="nav-item" data-section="explore"><span>⌕</span> Explorar</button>
+          <button class="nav-item" data-section="missions"><span>✦</span> Missões <b class="nav-dot"></b></button>
+          <button class="nav-item" data-section="notifications"><span>♧</span> Notificações <em>3</em></button>
+          <button class="nav-item" data-section="messages"><span>◌</span> Mensagens <em>12</em></button>
+          <button class="nav-item" data-section="wallet"><span>▣</span> Carteira</button>
+          <button class="nav-item" data-section="profile"><span>♙</span> Meu perfil</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="balance-card"><div class="balance-label"><span class="usdt-icon">S</span> Saldo SFC</div><strong id="sidebarBalance">38.420000 <small>SFC</small></strong><div class="energy-mini"><div><span>Energia para postar</span><b id="sidebarEnergy">100% / 100%</b></div><div class="energy-track"><i id="sidebarEnergyBar" style="width:100%"></i></div><small>Recarga total em 24h</small></div><button class="convert-energy" id="openEnergy">+ Investir SFC em energia</button><button class="withdraw-btn" data-section="wallet">Sacar agora <span>↗</span></button></div>
+          <button class="nav-item muted"><span>•••</span> Mais</button>
+          <div class="support-line"><span class="online-dot"></span> Sistema online <span>v2.4</span></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar"><div class="mobile-brand"><span class="brand-mark">$</span> soci<span>fauc</span></div><div class="search"><span>⌕</span><input id="communitySearch" placeholder="Buscar na comunidade" autocomplete="off" /><button class="clear-search" id="clearSearch" type="button" aria-label="Limpar busca">×</button><div class="search-result" id="searchResult" aria-live="polite"></div></div><div class="top-actions"><button class="icon-btn">⌁</button><button class="icon-btn has-notice">♧</button><button class="auth-action" id="authAction">Entrar</button><div class="avatar avatar-pink">MC</div></div></header>
+        <div class="content-wrap">
+          <div class="feed-column">
+            <div class="feed-tabs"><button class="tab active">Para você</button><button class="tab">Seguindo</button><button class="tab">Comunidades</button></div>
+            <section class="stories" aria-label="Stories">
+              <button class="story add-story" id="createStoryButton" type="button"><div class="story-ring"><div class="avatar avatar-lime">MC</div><span>+</span></div><small>Seu story</small></button>
+              <div class="story"><div class="story-ring ring-cyan"><div class="avatar avatar-cyan">VX</div></div><small>VKx Wallet</small></div>
+              <div class="story"><div class="story-ring ring-orange"><div class="avatar avatar-orange">D</div></div><small>Diego Lima</small></div>
+              <div class="story"><div class="story-ring ring-pink"><div class="avatar avatar-photo">F</div></div><small>Fabricio di...</small></div>
+              <div class="story"><div class="story-ring ring-blue"><div class="avatar avatar-blue">S</div></div><small>Sandra Mat...</small></div>
+              <div class="story"><div class="story-ring ring-purple"><div class="avatar avatar-purple">K</div></div><small>Karla Souza</small></div>
+            </section>
+
+            <section class="composer panel"><div class="composer-head"><div class="avatar avatar-lime">MC</div><textarea id="postInput" placeholder="Comece uma conversa..." rows="1"></textarea></div><div class="composer-attachment" id="composerAttachment"></div><div class="poll-builder" id="pollBuilder"><div class="poll-builder-head"><strong>Nova enquete</strong><button id="closePollBuilder" type="button">×</button></div><input id="pollQuestion" type="text" maxlength="120" placeholder="Faça uma pergunta..." /><div id="pollOptions"><input class="poll-input" type="text" maxlength="70" placeholder="Opção 1" /><input class="poll-input" type="text" maxlength="70" placeholder="Opção 2" /></div><button class="add-poll-option" id="addPollOption" type="button">+ Adicionar opção</button></div><div class="composer-foot"><div class="composer-tools"><button id="photoTool" title="Adicionar imagem">▧</button><button title="Adicionar vídeo">▣</button><button title="Adicionar GIF">GIF</button><button id="pollTool" title="Adicionar enquete">◉</button><input id="photoInput" type="file" accept="image/png,image/jpeg,image/webp" hidden /></div><div class="composer-actions"><span class="energy-status">⚡ <strong id="composerEnergy">100%</strong></span><span id="charCount">0/280</span><button class="publish-btn" id="publishBtn">Publicar <span>↗</span></button></div></div></section>
+
+            <div id="feedPosts">
+              <article class="post panel"><div class="post-author"><div class="avatar avatar-cyan">VX</div><div><strong>VKx Wallet <i>✓</i></strong><small>@vkxwallet · 1h</small></div><button class="post-more">•••</button></div><p>Com a <b>VKx Wallet</b> você agora envia, recebe e movimenta suas criptos sem pagar taxa de gás na rede BNB.</p><p>Zero custo de transação.<br />Zero dor de cabeça.<br />Só praticidade e economia.</p><p>Perfeito para quem faz várias operações por dia ou está começando e não quer perder dinheiro com taxas altas.</p><div class="post-tags">#crypto <span>#web3</span> <span>#USDT</span></div><div class="post-media wallet-art"><div class="coin coin-one">₮</div><div class="coin coin-two">₿</div><div class="media-copy"><small>MOVE MONEY</small><strong>sem taxas.</strong></div></div><div class="post-stats"><span>248 comentários</span><span>1.8k visualizações</span><span class="earned">+0.080000 SOCFAUC</span></div><div class="post-actions"><button class="like-btn">♡ <span>1.2k</span></button><button class="comment-btn">◌ <span>248</span></button><button>↗ <span>Repostar</span></button><button class="tip-btn">S <span>Dar gorjeta</span></button></div></article>
+              <article class="post panel"><div class="post-author"><div class="avatar avatar-orange">AL</div><div><strong>Andre Lima <i>✓</i></strong><small>@andrelima · 3h</small></div><button class="post-more">•••</button></div><p>Qual foi a melhor forma que você encontrou para ganhar seus primeiros tokens SOCFAUC aqui na comunidade? 💡</p><div class="poll"><div class="poll-head"><span>Respondendo à pergunta da semana</span><strong>1.5k votos</strong></div><button class="poll-option"><span>Comentando em posts</span><b>47%</b><i style="width:47%"></i></button><button class="poll-option"><span>Criando conteúdo</span><b>31%</b><i style="width:31%"></i></button><button class="poll-option"><span>Missões diárias</span><b>22%</b><i style="width:22%"></i></button></div><div class="post-stats"><span>96 comentários</span><span>742 visualizações</span><span class="earned">+0.030000 SOCFAUC</span></div><div class="post-actions"><button class="like-btn">♡ <span>389</span></button><button>◌ <span>96</span></button><button>↗ <span>Repostar</span></button><button class="tip-btn">S <span>Dar gorjeta</span></button></div></article>
+            </div>
+          </div>
+          <aside class="right-rail">
+            <section class="earn-card"><div class="earn-top"><div><small>SEU GANHO HOJE</small><h2 id="dailyEarn">2.840000 <span>SOCFAUC</span></h2></div><div class="trend">↗ 18.4%</div></div><div class="mini-chart"><i style="height:32%"></i><i style="height:45%"></i><i style="height:38%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:78%"></i><i style="height:100%"></i><i style="height:82%"></i></div><div class="chart-labels"><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span><span>dom</span></div><button class="earn-link" data-section="wallet">Ver extrato completo <span>↗</span></button></section>
+            <section class="rail-section"><div class="section-title"><h3>Top ganhos <span>da semana</span></h3><button>Ver ranking</button></div><div class="leaderboard"><div class="leader"><b>01</b><div class="avatar avatar-orange">LA</div><div class="leader-name"><strong>Leonardo Antunes</strong><small>@leonardoantunes</small></div><span>186.400000 <small>SOCFAUC</small></span></div><div class="leader"><b>02</b><div class="avatar avatar-purple">CC</div><div class="leader-name"><strong>Carol Dias</strong><small>@caroldias</small></div><span>142.900000 <small>SOCFAUC</small></span></div><div class="leader"><b>03</b><div class="avatar avatar-pink">SM</div><div class="leader-name"><strong>Sandra Mendes</strong><small>@sandrams</small></div><span>118.720000 <small>SOCFAUC</small></span></div></div></section>
+            <section class="rail-section missions"><div class="section-title"><h3>Missões diárias</h3><button>Ver tudo</button></div><div class="mission"><div class="mission-icon blue">✎</div><div><strong>Criar post original</strong><div class="progress"><i style="width:60%"></i></div></div><b>+0.500000 <small>SOCFAUC</small></b></div><div class="mission"><div class="mission-icon pink">◉</div><div><strong>Vídeo curto</strong><div class="progress"><i style="width:20%"></i></div></div><b>+0.800000 <small>SOCFAUC</small></b></div><div class="mission"><div class="mission-icon orange">♡</div><div><strong>Interagir com 5 posts</strong><div class="progress"><i style="width:80%"></i></div></div><b>+0.200000 <small>SOCFAUC</small></b></div></section>
+            <div class="footer-links">Termos · Privacidade · Central de ajuda<br /><span>© 2026 socfauc</span></div>
+          </aside>
+        </div>
+        <section class="explore-page" id="explorePage" aria-labelledby="exploreTitle">
+          <div class="explore-heading"><div><small>DESCUBRA A COMUNIDADE</small><h1 id="exploreTitle">Explorar</h1><p>Encontre quem está movimentando o socifauc hoje.</p></div><div class="explore-live"><i></i> ao vivo agora</div></div>
+          <div class="explore-tabs"><button class="explore-tab active" data-explore-tab="all">Visão geral</button><button class="explore-tab" data-explore-tab="followers">Mais seguidos</button><button class="explore-tab" data-explore-tab="likes">Mais curtidos</button><button class="explore-tab" data-explore-tab="trending">Em alta hoje</button><button class="explore-tab" data-explore-tab="sfc">Mais SFC</button></div>
+          <div class="explore-grid">
+            <section class="explore-card panel explore-followers"><div class="explore-card-title"><div><h2>Mais seguidos</h2><span>criadores em crescimento</span></div><b>↗</b></div><div class="explore-person"><strong>01</strong><div class="avatar avatar-cyan">VX</div><div><b>VKx Wallet</b><small>@vkxwallet</small></div><em>+12.4k</em></div><div class="explore-person"><strong>02</strong><div class="avatar avatar-orange">AL</div><div><b>Andre Lima</b><small>@andrelima</small></div><em>+8.9k</em></div><div class="explore-person"><strong>03</strong><div class="avatar avatar-purple">CC</div><div><b>Carol Crypto</b><small>@carolcrypto</small></div><em>+6.7k</em></div></section>
+            <section class="explore-card panel explore-likes"><div class="explore-card-title"><div><h2>Mais curtidos</h2><span>últimos 7 dias</span></div><b>♡</b></div><div class="like-feature"><div class="like-feature-art">SFC</div><div><b>Como começar no P2E sem complicação?</b><small>por Marina Web3 · 4.8k curtidas</small></div></div><div class="like-feature compact"><div class="avatar avatar-pink">SM</div><div><b>3 formas de ganhar tokens</b><small>Sandra Mendes · 2.9k curtidas</small></div></div></section>
+            <section class="explore-card panel explore-trending"><div class="explore-card-title"><div><h2>Em alta hoje</h2><span>assuntos do momento</span></div><b>⌁</b></div><div class="trend-topic"><span>01</span><div><b>#sfc</b><small>18.4k posts hoje</small></div><em>+42%</em></div><div class="trend-topic"><span>02</span><div><b>#missões</b><small>9.7k posts hoje</small></div><em>+28%</em></div><div class="trend-topic"><span>03</span><div><b>#web3brasil</b><small>7.2k posts hoje</small></div><em>+19%</em></div></section>
+            <section class="explore-card panel explore-sfc"><div class="explore-card-title"><div><h2>Mais SFC ganhos</h2><span>performance dos criadores</span></div><b>S</b></div><div class="sfc-rank"><span>01</span><div class="avatar avatar-lime">MC</div><div><b>Marina Web3</b><small>12.840000 SFC esta semana</small><div class="tiny-progress"><i style="width:90%"></i></div></div><strong>12.840000</strong></div><div class="sfc-rank"><span>02</span><div class="avatar avatar-orange">LA</div><div><b>Leonardo Antunes</b><small>9.460000 SFC esta semana</small><div class="tiny-progress"><i style="width:70%"></i></div></div><strong>9.460000</strong></div><div class="sfc-rank"><span>03</span><div class="avatar avatar-blue">DS</div><div><b>Diego Souza</b><small>7.820000 SFC esta semana</small><div class="tiny-progress"><i style="width:58%"></i></div></div><strong>7.820000</strong></div></section>
+          </div>
+          <section class="explore-discovery panel"><div class="explore-card-title"><div><h2>O que a comunidade está falando</h2><span>posts em destaque agora</span></div><button id="exploreRefresh">Atualizar ↻</button></div><div class="discovery-post"><div class="avatar avatar-cyan">VX</div><div><b>O futuro das recompensas sociais é transparente.</b><small>VKx Wallet · 2.4k visualizações · <span>+0.080000 SFC</span></small></div><strong>♡ 1.2k</strong></div><div class="discovery-post"><div class="avatar avatar-pink">SM</div><div><b>Você já completou a missão de hoje?</b><small>Sandra Mendes · 1.8k visualizações · <span>+0.050000 SFC</span></small></div><strong>♡ 894</strong></div></section>
+        </section>
+        <section class="wallet-page" id="walletPage" aria-labelledby="walletPageTitle">
+          <div class="wallet-page-top"><button class="back-feed" id="walletBack">← Voltar ao feed</button><button class="withdraw-main" id="openWithdraw">Sacar SFC <span>↗</span></button></div>
+          <div class="wallet-heading"><div><small>CARTEIRA DIGITAL</small><h1 id="walletPageTitle">Seus ganhos</h1><p>Acompanhe cada token que você conquistou na comunidade.</p></div><div class="wallet-total"><span>saldo total</span><strong id="walletPageBalance">38.420000</strong><small>SOCFAUC</small></div></div>
+          <div class="wallet-stats"><div class="wallet-stat"><span>Ganhos este mês</span><strong>12.840000 <small>SOCFAUC</small></strong><b>↗ 24.8%</b></div><div class="wallet-stat"><span>Ganhos por engajamento</span><strong>4.620000 <small>SOCFAUC</small></strong><b>↗ 18.2%</b></div><div class="wallet-stat"><span>Missões concluídas</span><strong>28</strong><b>+6 esta semana</b></div><div class="wallet-stat"><span>Taxa de engajamento</span><strong>8.6%</strong><b>↗ 1.4%</b></div></div>
+          <div class="wallet-analytics-grid"><section class="wallet-chart panel"><div class="wallet-section-title"><div><h2>Performance de ganhos</h2><span>Tokens recebidos nos últimos 7 dias</span></div><select aria-label="Período do gráfico"><option>7 dias</option><option>30 dias</option><option>90 dias</option></select></div><div class="chart-area"><div class="chart-y"><span>3.0</span><span>2.0</span><span>1.0</span><span>0</span></div><div class="line-chart"><svg viewBox="0 0 640 190" preserveAspectRatio="none" aria-label="Gráfico de ganhos"><defs><linearGradient id="walletFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c8f36b" stop-opacity=".3"/><stop offset="1" stop-color="#c8f36b" stop-opacity="0"/></linearGradient></defs><path class="chart-fill" d="M0,145 C45,134 62,120 105,130 S155,108 205,113 S250,86 300,99 S350,68 400,78 S445,92 495,49 S550,65 590,34 S620,45 640,20 L640,190 L0,190 Z"/><path class="chart-line" d="M0,145 C45,134 62,120 105,130 S155,108 205,113 S250,86 300,99 S350,68 400,78 S445,92 495,49 S550,65 590,34 S620,45 640,20"/></svg><div class="chart-x"><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span><span>dom</span></div></div></div></section><aside class="wallet-breakdown panel"><div class="wallet-section-title"><div><h2>De onde vêm seus tokens</h2><span>distribuição dos ganhos</span></div></div><div class="donut-row"><div class="donut"><span>12.84<br /><small>SOCFAUC</small></span></div><div class="donut-legend"><span><i class="legend-lime"></i>Posts <b>42%</b></span><span><i class="legend-cyan"></i>Engajamento <b>36%</b></span><span><i class="legend-pink"></i>Missões <b>22%</b></span></div></div></aside></div>
+          <section class="wallet-history panel"><div class="wallet-section-title"><div><h2>Atividade recente</h2><span>suas últimas recompensas</span></div><button class="wallet-filter">Todos ⌄</button></div><div class="wallet-table"><div class="wallet-row wallet-row-head"><span>Atividade</span><span>Data</span><span>Valor</span></div><div class="wallet-row"><div class="activity-name"><i class="activity-icon lime">✎</i><span><strong>Post original publicado</strong><small>Conteúdo e conversa</small></span></div><span>Hoje, 09:42</span><b>+0.500000 SOCFAUC</b></div><div class="wallet-row"><div class="activity-name"><i class="activity-icon cyan">♡</i><span><strong>Interações recebidas</strong><small>428 curtidas no seu post</small></span></div><span>Hoje, 09:48</span><b>+0.080000 SOCFAUC</b></div><div class="wallet-row"><div class="activity-name"><i class="activity-icon pink">✦</i><span><strong>Missão diária concluída</strong><small>Interagir com 5 posts</small></span></div><span>Ontem, 18:10</span><b>+0.200000 SOCFAUC</b></div></div></section>
+        </section>
+        <section class="profile-page" id="profilePage" aria-labelledby="profilePageTitle">
+          <div class="profile-page-top"><button class="back-feed" id="profileBack">← Voltar ao feed</button><button class="edit-profile-page" id="editProfilePage">Editar perfil <span>✎</span></button></div>
+          <div class="profile-cover"></div>
+          <div class="profile-page-card panel"><div class="profile-page-avatar" id="profilePagePhoto">MC</div><div class="profile-page-actions"><button class="share-profile">↗</button></div><h1 id="profilePageTitle">Marina Costa</h1><p class="profile-page-handle" id="profilePageHandle">@marinac</p><p class="profile-page-bio" id="profilePageBio">Criadora e exploradora da economia social.</p><div class="profile-stats"><div><strong id="profilePostsCount">12</strong><span>posts</span></div><div><strong id="profileFollowers">1.284</strong><span>seguidores</span></div><div><strong id="profileFollowing">356</strong><span>seguindo</span></div><div><strong id="profileLikes">8.640</strong><span>curtidas ganhas</span></div></div></div>
+          <div class="profile-content-grid"><div class="profile-recent panel"><div class="profile-section-title"><h2>Posts recentes</h2><span>últimos 30 dias</span></div><article class="profile-post"><div class="profile-post-meta"><span>Hoje · 09:42</span><b>+0.500000 SOCFAUC</b></div><p>Construindo comunidades que ganham juntas. Qual missão você vai completar hoje?</p><div><span>♡ 428 curtidas</span><span>◌ 64 comentários</span></div></article><article class="profile-post"><div class="profile-post-meta"><span>Ontem · 18:10</span><b>+0.080000 SOCFAUC</b></div><p>Aprender sobre cripto fica melhor quando todo mundo compartilha o que sabe.</p><div><span>♡ 312 curtidas</span><span>◌ 38 comentários</span></div></article><article class="profile-post"><div class="profile-post-meta"><span>18 set · 12:26</span><b>+0.320000 SOCFAUC</b></div><p>Minha primeira semana no socfauc: conteúdo, comunidade e recompensas transparentes.</p><div><span>♡ 276 curtidas</span><span>◌ 25 comentários</span></div></article></div><aside class="profile-insights"><section class="profile-insight-card panel"><small>ENGAJAMENTO TOTAL</small><strong>12.8k</strong><span>interações recebidas</span><div class="profile-bars"><i style="height:38%"></i><i style="height:60%"></i><i style="height:48%"></i><i style="height:82%"></i><i style="height:68%"></i><i style="height:100%"></i><i style="height:88%"></i></div></section><section class="profile-insight-card panel"><small>GANHOS COM POSTS</small><strong class="lime-text">8.420000</strong><span>SOCFAUC acumulados</span><button class="profile-wallet-link" data-section="wallet">Ver carteira <span>↗</span></button></section></aside></div>
+        </section>
+      </main>
+    </div>
+    <div class="profile-modal" id="profileModal" aria-hidden="true">
+      <div class="profile-dialog" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+        <div class="profile-dialog-head"><div><small>IDENTIDADE SOCFAUC</small><h2 id="profileTitle">Meu perfil</h2></div><button class="close-profile" id="closeProfile" aria-label="Fechar configurações">×</button></div>
+        <div class="profile-preview"><div class="profile-photo" id="profilePhoto">MC</div><div><strong>Foto de perfil</strong><small>JPG, PNG ou WEBP · até 5 MB</small><label class="upload-btn" for="profileUpload">Escolher foto</label><input id="profileUpload" type="file" accept="image/png,image/jpeg,image/webp" /></div></div>
+        <form id="profileForm">
+          <label class="field-label" for="profileName">Nome de usuário<input id="profileName" type="text" value="Marina Costa" maxlength="40" /></label>
+          <div class="form-grid"><label class="field-label" for="profileHandle">@ usuário<input id="profileHandle" type="text" value="marinac" maxlength="24" /></label><label class="field-label" for="profileAge">Idade<input id="profileAge" type="number" min="13" max="120" value="26" /></label></div>
+          <label class="field-label" for="profileBio">Biografia<textarea id="profileBio" rows="4" maxlength="160" placeholder="Conte um pouco sobre você...">Criadora e exploradora da economia social.</textarea><span class="bio-count" id="bioCount">43/160</span></label>
+          <div class="profile-form-foot"><span>Seus dados ficam salvos neste dispositivo.</span><button class="save-profile" type="submit">Salvar perfil <span>✓</span></button></div>
+        </form>
+      </div>
+    </div>
+    <div class="tip-modal" id="tipModal" aria-hidden="true">
+      <div class="tip-dialog" role="dialog" aria-modal="true" aria-labelledby="tipTitle">
+        <button class="close-tip" id="closeTip" aria-label="Fechar gorjeta">×</button>
+        <div class="tip-symbol">S</div><small>APOIAR CRIADOR</small><h2 id="tipTitle">Dar gorjeta</h2><p>Envie SFC para <strong id="tipRecipient">Marina Costa</strong>.</p>
+        <label class="tip-field">Valor em SFC<input id="tipAmount" type="number" min="0.000001" step="0.000001" value="0.020000" /></label>
+        <label class="tip-field">Mensagem <textarea id="tipMessage" maxlength="120" rows="2" placeholder="Deixe uma mensagem (opcional)"></textarea></label>
+        <div class="tip-balance">Seu saldo: <strong id="tipBalance">38.420000 SFC</strong></div>
+        <button class="confirm-tip" id="confirmTip">Enviar gorjeta <span>↗</span></button>
+      </div>
+    </div>
+    <div class="story-modal" id="storyModal" aria-hidden="true">
+      <div class="story-dialog" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+        <button class="close-story" id="closeStory" aria-label="Fechar criador de story">×</button>
+        <small>COMPARTILHE AGORA</small><h2 id="storyTitle">Criar story</h2><p>Publique uma atualização rápida para a sua comunidade.</p>
+        <textarea id="storyText" maxlength="120" rows="3" placeholder="O que está acontecendo?"></textarea>
+        <div class="story-upload" id="storyUploadPreview"><span>Adicione uma foto opcional</span></div>
+        <label class="story-file-label" for="storyFile">Escolher foto</label><input id="storyFile" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+        <button class="publish-story" id="publishStory" type="button">Publicar story <span>↗</span></button>
+      </div>
+    </div>
+    <div class="withdraw-modal" id="withdrawModal" aria-hidden="true">
+      <div class="withdraw-dialog" role="dialog" aria-modal="true" aria-labelledby="withdrawTitle">
+        <button class="close-withdraw" id="closeWithdraw" aria-label="Fechar saque">×</button>
+        <div class="withdraw-symbol">S</div><small>CARTEIRA POLYGON</small><h2 id="withdrawTitle">Sacar SFC</h2><p>Envie seus tokens para uma wallet compatível com a rede Polygon.</p>
+        <label class="withdraw-field">Wallet Polygon<input id="withdrawWallet" type="text" placeholder="0x..." autocomplete="off" /></label>
+        <label class="withdraw-field">Quantidade de SFC<input id="withdrawAmount" type="number" min="0.000001" step="0.000001" placeholder="0.000000" /></label>
+        <div class="withdraw-available">Disponível para saque: <strong id="withdrawBalance">38.420000 SFC</strong></div>
+        <div class="withdraw-warning" id="withdrawWarning"></div>
+        <button class="confirm-withdraw" id="confirmWithdraw">Confirmar saque <span>↗</span></button>
+      </div>
+    </div>
+    <div class="energy-modal" id="energyModal" aria-hidden="true">
+      <div class="energy-dialog" role="dialog" aria-modal="true" aria-labelledby="energyTitle">
+        <button class="close-energy" id="closeEnergy" aria-label="Fechar conversão">×</button><div class="energy-symbol">⚡</div><small>CONVERSÃO DE ENERGIA</small><h2 id="energyTitle">Mais energia para postar</h2><p>Converta seus tokens na proporção de <strong>1 SFC = 1% de energia</strong>.</p>
+        <label class="energy-field">Pontos de energia<input id="energyAmount" type="number" min="1" step="1" value="10" /></label><div class="energy-capacity-note">Cada ponto adiciona <strong>1%</strong> à sua energia. O custo é <strong>3 SFC por ponto</strong>.</div><div class="energy-cost">Custo da compra: <strong id="energyCost">30.000000 SFC</strong></div><div class="energy-available">Seu saldo: <strong id="energyBalance">38.420000 SFC</strong></div><div class="energy-warning" id="energyWarning"></div><button class="confirm-energy" id="confirmEnergy">Comprar energia <span>↗</span></button>
+      </div>
+    </div>
+    <div class="auth-modal" id="authModal" aria-hidden="true">
+      <div class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button class="close-auth" id="closeAuth" aria-label="Fechar login">×</button>
+        <div class="auth-logo"><span class="brand-mark">$</span><strong>soci<span>fauc</span></strong></div>
+        <small id="authEyebrow">ENTRE NA COMUNIDADE</small><h2 id="authTitle">Bem-vindo de volta</h2><p id="authDescription">Entre para publicar, ganhar SFC e acompanhar sua carteira.</p>
+        <form id="authForm"><label class="auth-field">E-mail<input id="authEmail" type="email" autocomplete="email" required placeholder="voce@email.com" /></label><label class="auth-field">Senha<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo de 6 caracteres" /></label><label class="auth-name-field" id="authNameField">Nome de usuário<input id="authName" type="text" maxlength="40" placeholder="Como você será visto" /></label><div class="auth-error" id="authError"></div><button class="resend-confirmation" id="resendConfirmation" type="button">Reenviar confirmação por e-mail</button><button class="auth-submit" id="authSubmit" type="submit">Entrar <span>↗</span></button></form>
+        <button class="auth-reset" id="authReset" type="button">Esqueci minha senha</button><div class="auth-switch" id="authSwitch">Ainda não tem conta? <button type="button">Criar conta</button></div>
+      </div>
+    </div>
+    <div class="toast" id="toast">+0.010000 SOCFAUC adicionado à sua carteira</div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
